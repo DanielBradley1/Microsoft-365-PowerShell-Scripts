@@ -45,3 +45,4 @@ ForEach ($user in $users) {
    
 #Export report to CSV file
 $Report | Export-CSV -Encoding UTF8 -NoTypeInformation "c:\temp\m365mfareport.csv"
+Write-Host "Data exported to C:\temp folder" -ForegroundColor white -BackgroundColor Black
