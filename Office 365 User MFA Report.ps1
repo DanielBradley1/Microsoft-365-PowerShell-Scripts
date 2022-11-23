@@ -1,19 +1,22 @@
+#Connect to Microsoft Online
 Connect-MsolService
 
+#Get all user accounts
 Write-Host "Finding accounts..." -ForegroundColor white -BackgroundColor Black
 $Users = Get-MsolUser -All | Where-Object { $_.UserType -ne "Guest" }
+
+#create a new object
 $Report = [System.Collections.Generic.List[Object]]::new()
 
+#pause and display information
 Start-Sleep 1.5
 Write-Host $users.count "Accounts found" -ForegroundColor white -BackgroundColor Black
 
-
+#Loop through each user, gather information on mfa status and methods and add to report
 ForEach ($user in $users) {
-
     $mfadefaultmethod = ($User.StrongAuthenticationMethods | Where-Object { $_.IsDefault -eq "True"}).methodtype
     $userupn = $user.UserPrincipalName
     $displayname = $user.displayname
-
     If (($user.StrongAuthenticationRequirements.state) -eq "Enforced") {
         $state = $User.StrongAuthenticationRequirements.State
     }
@@ -28,7 +31,6 @@ ForEach ($user in $users) {
         "PhoneAppNotification" { $Method = "Authenticator app" }
         }
     }
-
     Else {
         $mfadefaultmethod = "Not set"
    }
@@ -37,9 +39,9 @@ ForEach ($user in $users) {
         DisplayName       = $User.DisplayName
         MFAState          = $State
         MFADefaultMethod  = $MFADefaultMethod
-    }
-                 
+    }          
     $Report.Add($ReportLine)
-
    }
+   
+#Export report to CSV file
 $Report | Export-CSV -Encoding UTF8 -NoTypeInformation "c:\temp\m365mfareport.csv"
