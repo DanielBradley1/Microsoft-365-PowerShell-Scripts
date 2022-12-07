@@ -10,8 +10,8 @@ None
 .NOTES
   Version:        1.0.0
   Author:         Daniel Bradley
-  Twitter:        @AndrewTaylor_2
-  Website:        andrewstaylor.com
+  Twitter:        https://twitter.com/DanielatOCN
+  Website:        https://ourcloudnetwork.com/
   LinkedIn        https://www.linkedin.com/in/danielbradley2/
   Creation Date:  07/12/2022
   Purpose/Change: Initial script development
