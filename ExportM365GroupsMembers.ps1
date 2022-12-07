@@ -14,7 +14,7 @@ None
   Website:        https://ourcloudnetwork.com/
   LinkedIn        https://www.linkedin.com/in/danielbradley2/
   Creation Date:  07/12/2022
-  Purpose/Change: Initial script development
+  Purpose/Change: First draft
 .EXAMPLE
 N/A
 
