@@ -1,6 +1,6 @@
 <#
 .DESCRIPTION
-Disable a single transport rule in Exchange Online
+Checks if all transport rules affect mail attachments and exports the properties of each rule that pertain to attachments to a CSV file.
 .NOTES
   Version:        1.0.0
   Author:         Daniel Bradley
